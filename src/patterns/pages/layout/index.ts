@@ -1,11 +1,3 @@
 export * from './layout.component';
-export * from './components/toolbar.component';
-export * from './components/actionbar.component';
-export * from './components/aside.component';
-export * from './components/main.component';
-export * from './components/layout.component';
-export * from './components/pagination.component';
-export * from './components/filters-wrapper.component';
-export * from './components/feedback-wrapper.component';
-export * from './components/resources-wrapper.component';
-export * from './components/title-section.component';
+export * from './components';
+

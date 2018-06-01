@@ -10,16 +10,7 @@ import { PageAComponent } from './page-a/page.component';
 import { PageBComponent } from './page-b/page.component';
 import {
   SamLayoutDemoComponent,
-  SamActionBarComponent,
-  SamAsideComponent,
-  SamMainComponent,
-  SamLayoutComponent,
-  SamToolbarComponent,
-  SamDatabankPaginationComponent,
-  SamFiltersWrapperComponent,
-  SamFeedbackWrapperComponent,
-  SamResourcesWrapperComponent,
-  SamDatabankTitleSectionDirective
+  SamLayoutComponentsModule
 } from './layout';
 
 
@@ -53,7 +44,8 @@ import { DataFilesPageComponent } from './data-services/data-files/page.componen
     CommonModule,
     FormsModule,
     PagesRoutingModule,
-    SamUIKitModule
+    SamUIKitModule,
+    SamLayoutComponentsModule
   ],
   declarations: [
     PagesComponent,
@@ -75,16 +67,6 @@ import { DataFilesPageComponent } from './data-services/data-files/page.componen
     StandardReportPageComponent,
     AdhocReportPageComponent,
     DataFilesPageComponent,
-    SamLayoutComponent,
-    SamActionBarComponent,
-    SamAsideComponent,
-    SamMainComponent,
-    SamToolbarComponent,
-    SamDatabankPaginationComponent,
-    SamFiltersWrapperComponent,
-    SamFeedbackWrapperComponent,
-    SamResourcesWrapperComponent,
-    SamDatabankTitleSectionDirective
   ]
 })
 export class PagesModule {}

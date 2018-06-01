@@ -1,15 +1,17 @@
 import {
-    Component,
-    ContentChild,
-    AfterContentInit,
-    HostBinding
-  } from '@angular/core';
-  
+  Component,
+  ContentChild,
+  AfterContentInit,
+  HostBinding,
+  Input
+} from '@angular/core';
+import { SamAsideComponent } from './aside';
+
 @Component({
     selector: 'sam-toolbar',
     template: `
   <div class="sam small menu">
-    <a>
+    <a (click)="sidenav.toggle()">
       <sam-icon name="slider-h"></sam-icon>
       Toggle filters
     </a>
@@ -27,7 +29,9 @@ import {
         Save Criteria
       </a>
     </div>
-  </div>  
+  </div>
   `
   })
-  export class SamToolbarComponent {}
+  export class SamToolbarComponent {
+    @Input() sidenav: SamAsideComponent;
+  }
