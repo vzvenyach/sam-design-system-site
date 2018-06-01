@@ -52,6 +52,7 @@ export class SampleDataSource extends DataSource<any> {
       this._paginator.pageChange,
       this._sort.samSortChange,
       this._sampleDatabase.dataChange,
+      // reset pagination for filter change events
       this._fhFilter.valueChanges.map(()=>{
         this._paginator.currentPage = 1;
       }),
