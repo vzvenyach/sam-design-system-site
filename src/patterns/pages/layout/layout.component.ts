@@ -3,7 +3,8 @@ import {
   ContentChild,
   AfterContentInit,
   HostBinding,
-  ViewChild
+  ViewChild,
+  OnInit
 } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { SampleData } from './datasource';
@@ -17,7 +18,7 @@ import { SamModalComponent } from 'sam-ui-elements/src/ui-kit/components/modal';
   selector: 'sam-layout-demo-component',
   templateUrl: './layout.template.html'
 })
-export class SamLayoutDemoComponent {
+export class SamLayoutDemoComponent implements OnInit {
   _reportData = SampleData;
   reportDatabase = new ReportDatabase();
   dataSource: ReportDataSource | null;
@@ -74,7 +75,7 @@ export class SamLayoutDemoComponent {
     // data table
     this.dataSource = new ReportDataSource(
       this.reportDatabase,
-      //this._paginator,
+      // this._paginator,
       this._sort,
     );
   }

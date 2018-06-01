@@ -2,17 +2,21 @@ import {
     Component,
     ContentChild,
     AfterContentInit,
-    HostBinding
+    HostBinding,
+    Input
   } from '@angular/core';
-  
+import { SamSidenav2Component } from './sidenav.component';
+import { SamAsideComponent } from '..';
+
 @Component({
     selector: 'sam-toolbar',
     template: `
   <div class="sam menu">
-    <a>
+    <a (click)="toggleSidenav()">
       <sam-icon name="slider-h"></sam-icon>
       Toggle filters
     </a>
+
     <div class="section right">
       <a>
         <i class="fa fa-download" aria-hidden="true"></i>
@@ -27,7 +31,13 @@ import {
         Save Criteria
       </a>
     </div>
-  </div>  
+  </div>
   `
   })
-  export class SamToolbarComponent {}
+  export class SamToolbarComponent {
+    @Input() sidenav: SamAsideComponent;
+
+    public toggleSidenav () {
+      this.sidenav.toggle();
+    }
+  }

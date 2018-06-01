@@ -11,14 +11,16 @@ import { PageBComponent } from './page-b/page.component';
 import { SamLayoutDemoComponent, SamActionBarComponent,
   SamAsideComponent, SamMainComponent, SamLayoutComponent,
   SamToolbarComponent } from './layout';
-
+import { MdSidenavModule } from './layout/components/aside';
+import { SamSidenav2Component } from './layout/components/sidenav.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     PagesRoutingModule,
-    SamUIKitModule
+    SamUIKitModule,
+    MdSidenavModule
   ],
   declarations: [
     PagesComponent,
@@ -29,7 +31,8 @@ import { SamLayoutDemoComponent, SamActionBarComponent,
     SamActionBarComponent,
     SamAsideComponent,
     SamMainComponent,
-    SamToolbarComponent
+    SamToolbarComponent,
+    SamSidenav2Component
   ]
 })
 export class PagesModule {}

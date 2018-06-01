@@ -15,7 +15,6 @@ import { SidebarBreadcrumbsPageCodeComponent  } from './version-1/sidebar-breadc
 import { TitleOptionsPageComponent  } from './version-1/title-options.component';
 import { TitleOptionsPageCodeComponent  } from './version-1/title-options.component';
 
-
 import { PatternsComponent } from './patterns.component';
 import { PatternsHomeComponent } from './home/patterns-home.component';
 
@@ -29,7 +28,7 @@ import { PatternsHomeComponent } from './home/patterns-home.component';
     TitleOptionsPageComponent,
     TitleOptionsPageCodeComponent,
     PatternsComponent,
-    PatternsHomeComponent
+    PatternsHomeComponent,
   ],
   imports: [
     CommonModule,
