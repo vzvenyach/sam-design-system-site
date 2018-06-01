@@ -21,7 +21,7 @@ export interface SampleDataDef {
   'Auto Published': string;
 }
   
-export class ReportDatabase {
+export class SampleDatabase {
   dataChange: BehaviorSubject<SampleDataDef[]> = new BehaviorSubject<SampleDataDef[]>([]);
   get data(): SampleDataDef[] { return this.dataChange.value; }
   constructor() {
@@ -39,12 +39,12 @@ export class ReportDatabase {
   
 export class SampleDataSource extends DataSource<any> {
   
-  constructor(private _sampleDatabase: ReportDatabase,
-              private _paginator: SamDatabankPaginationComponent,
-              private _sort: SamSortDirective,
-              private _fhFilter: FormControl,
-              private _dateFilter: FormControl
-            ) {
+  constructor(
+    private _sampleDatabase: SampleDatabase,
+    private _paginator: SamDatabankPaginationComponent,
+    private _sort: SamSortDirective,
+    private _fhFilter: FormControl,
+    private _dateFilter: FormControl) {
     super();
   }
   connect(): Observable<SampleDataDef[]> {
@@ -91,6 +91,7 @@ export class SampleDataSource extends DataSource<any> {
       return data;
     });
   }
+
   disconnect() {}
 
   getSortedData(): SampleDataDef[] {

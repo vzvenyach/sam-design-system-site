@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { SampleData } from './datasource';
-import { ReportDatabase, SampleDataSource } from './database';
+import { SampleDatabase, SampleDataSource } from './database';
 import { SamSortDirective } from 'sam-ui-elements/src/ui-kit/experimental/data-table/sort.directive';
 import 'rxjs/add/observable/merge';
 import { SamModalComponent } from 'sam-ui-elements/src/ui-kit/components/modal';
@@ -21,8 +21,8 @@ import { NgModel } from '@angular/forms';
   templateUrl: './layout.template.html'
 })
 export class SamLayoutDemoComponent implements OnInit {
-  _reportData = SampleData;
-  reportDatabase = new ReportDatabase();
+  _sampleData = SampleData;
+  sampleDatabase = new SampleDatabase();
   dataSource: SampleDataSource | null;
   referenceColumns = [];
   displayedColumns = [];
@@ -108,7 +108,7 @@ export class SamLayoutDemoComponent implements OnInit {
     this.displayedColumns = this.referenceColumns.slice(0);
     // data table
     this.dataSource = new SampleDataSource(
-      this.reportDatabase,
+      this.sampleDatabase,
       this._paginator,
       this._sort,
       this.fhInput.control,
