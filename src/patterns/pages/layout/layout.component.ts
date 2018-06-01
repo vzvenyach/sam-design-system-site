@@ -27,26 +27,6 @@ export class SamLayoutDemoComponent implements OnInit {
   referenceColumns = [];
   displayedColumns = [];
 
-  public orgOptions: any[] = [
-    {label: 'Published Date', name: 'Published Date', value: 'Published Date'},
-    {label: 'Modified Date', name: 'Modified Date', value: 'Modified Date'}
-  ];
-
-  public assistanceOptions: any[] = [
-    { key: 'fg', value: 'Formula Grants'},
-    { key: 'fga', value: 'Formula Grants (Apportionments)'},
-    { key: 'fgca', value: 'Formula Grants (Cooperative Agreements)'},
-    { key: 'fghig', value: 'Formula Grants (Health Incentive Grants)' },
-    { key: 'ca', value: 'Cooperative Agreements'},
-    { key: 'cadg', value: 'Cooperative Agreements (Discretionary Grants)'}
-  ];
-
-  public assistanceConfig = {
-    keyProperty: 'key',
-    valueProperty: 'value'
-  };
-
-  public editFields = false;
   public options: any;
   public optionsBackup: any;
   public filterItems = [];
