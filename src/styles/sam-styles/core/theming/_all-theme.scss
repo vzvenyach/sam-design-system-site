@@ -3,6 +3,7 @@
 @import '../../breadcrumbs/theme';
 @import '../../menu/theme';
 @import '../../table/theme';
+@import '../../pagination/theme';
 
 @import '../../box/box';
 @import '../../button/button';
@@ -28,4 +29,5 @@
   @include sam-button-theme($theme);
   @include sam-menu-theme($theme);
   @include sam-table-theme($theme);
+  @include sam-pagination-theme($theme);
 }

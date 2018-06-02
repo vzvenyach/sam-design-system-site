@@ -6,15 +6,60 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'sam-databank-pagination',
   template: `
-<ul class="usa-pagination usa-color-text usa-color-primary-darkest usa-color-text-white" aria-label="pagination" [ngClass]="disabled && 'disabled'">
-    <li *ngIf="showPrevious()"><a tabindex="0" class="page-previous" aria-label="previous" (click)="onPreviousClick()" (keyup.enter)="onPreviousClick()">&lsaquo; Prev</a></li>
-    <li><a tabindex="0" class="page-button" [ngClass]="textDecoration(1)" (click)="onPageClick(1)" [attr.aria-label]="getAriaLabel(1)" (keyup.enter)="onPageClick(1)">1</a></li>
-    <li *ngIf="showFirstEllipsis()"><span class="first-ellipsis">&hellip;</span></li>
-    <li *ngFor="let i of consecutivePageRange()"><a tabindex="0" class="page-button" [ngClass]="textDecoration(i)" (click)="onPageClick(i)" [attr.aria-label]="getAriaLabel(i)" (keyup.enter)="onPageClick(i)">{{i}}</a></li>
-    <li *ngIf="showLastEllipsis()"><span class="last-ellipsis">&hellip;</span></li>
-    <li *ngIf="!dontShowLast && showLastButton()"><a tabindex="0" class="page-button" [ngClass]="textDecoration(totalPages)" (click)="onPageClick(totalPages)" [attr.aria-label]="getAriaLabel(totalPages)" (keyup.enter)="onPageClick(totalPages)">{{totalPages}}</a></li>
-    <li *ngIf="showNext()"><a tabindex="0" class="page-next" aria-label="next" (click)="onNextClick()" (keyup.enter)="onNextClick()">Next &rsaquo;</a></li>
-</ul>
+    <nav class="sam pagination" role="navigation" aria-label="Pagination">
+        <ul [ngClass]="disabled && 'disabled'">
+            <li *ngIf="showPrevious()">
+                <a tabindex="0" 
+                    aria-label="previous" 
+                    (click)="onPreviousClick()" 
+                    (keyup.enter)="onPreviousClick()">
+                    <span class="fa fa-angle-left" aria-hidden="true"></span> 
+                    Prev
+                </a>
+            </li>
+            <li>
+                <a tabindex="0" 
+                    [ngClass]="textDecoration(1)" 
+                    (click)="onPageClick(1)" 
+                    [attr.aria-label]="getAriaLabel(1)" 
+                    (keyup.enter)="onPageClick(1)">
+                    1
+                </a>
+            </li>
+            <li *ngIf="showFirstEllipsis()">
+                &hellip;
+            </li>
+            <li *ngFor="let i of consecutivePageRange()">
+                <a tabindex="0" 
+                    [ngClass]="textDecoration(i)" 
+                    (click)="onPageClick(i)" 
+                    [attr.aria-label]="getAriaLabel(i)" 
+                    (keyup.enter)="onPageClick(i)">{{i}}
+                </a>
+            </li>
+            <li *ngIf="showLastEllipsis()">
+                &hellip;
+            </li>
+            <li *ngIf="!dontShowLast && showLastButton()">
+                <a tabindex="0" 
+                    [ngClass]="textDecoration(totalPages)" 
+                    (click)="onPageClick(totalPages)" 
+                    [attr.aria-label]="getAriaLabel(totalPages)" 
+                    (keyup.enter)="onPageClick(totalPages)">
+                    {{totalPages}}
+                </a>
+            </li>
+            <li *ngIf="showNext()">
+                <a tabindex="0" 
+                    aria-label="next" 
+                    (click)="onNextClick()" 
+                    (keyup.enter)="onNextClick()">
+                    Next
+                    <span class="fa fa-angle-right" aria-hidden="true"></span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 `,
 })
 export class SamDatabankPaginationComponent {
@@ -107,7 +152,7 @@ export class SamDatabankPaginationComponent {
     }
 
     textDecoration(i) {
-        return this.currentPage === i ? 'usa-current' : '';
+        return this.currentPage === i ? 'active' : '';
     }
 
     getAriaLabel(i){
