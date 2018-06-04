@@ -8,15 +8,14 @@
 
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {MdCommonModule} from '../core';
-import {A11yModule} from '../core/a11y/index';
+import {A11yModule} from '@angular/cdk';
 import {OverlayModule} from '../core/overlay/index';
 import {MdSidenav, MdSidenavContainer} from './sidenav';
 
 
 @NgModule({
-  imports: [CommonModule, MdCommonModule, A11yModule, OverlayModule],
-  exports: [MdSidenavContainer, MdSidenav, MdCommonModule],
+  imports: [CommonModule, A11yModule, OverlayModule],
+  exports: [MdSidenavContainer, MdSidenav],
   declarations: [MdSidenavContainer, MdSidenav],
 })
 export class MdSidenavModule {}

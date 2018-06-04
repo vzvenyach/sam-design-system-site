@@ -23,10 +23,10 @@ import {
   OnDestroy,
   Inject,
 } from '@angular/core';
-import {Directionality, coerceBooleanProperty} from '../core';
-import {FocusTrapFactory, FocusTrap} from '../core/a11y/focus-trap';
-import {ESCAPE} from '../core/keyboard/keycodes';
-import {first} from '../core/rxjs/index';
+import {Directionality, coerceBooleanProperty} from '@angular/cdk';
+import {FocusTrapFactory, FocusTrap} from '@angular/cdk';
+import {ESCAPE} from '@angular/cdk';
+import {first} from '@angular/cdk';
 import {DOCUMENT} from '@angular/platform-browser';
 
 
