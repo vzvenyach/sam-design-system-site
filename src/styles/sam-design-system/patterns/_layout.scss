@@ -1,7 +1,7 @@
-.container{
-	// max-width:1150px; 
-	// margin:0 auto;
+.sam-main{
+	padding:10px 20px 20px;
 }
+
 
 .sam-aside-container {	
 	&.aside-opened {
@@ -12,10 +12,18 @@
 	
 	.sam-aside {
 		visibility: hidden;
+		padding:20px 15px;
+		min-width:275px;
 	}
 
 	display: flex;
+} 
+.sam-aside .usa-fieldset-inputs {
+	padding: 0px;
+	margin: 20px 0;
 }
+
+
 
 sam-action-bar{
 	display: flex;
