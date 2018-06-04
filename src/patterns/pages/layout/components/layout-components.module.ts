@@ -5,6 +5,7 @@ import {
   ReactiveFormsModule
 } from '@angular/forms';
 
+import { SamPageNextComponent } from './page/page.component';
 import { MdSidenavModule } from './sidenav';
 import { SamAsideModule } from './aside';
 import { SamActionBarComponent } from './actionbar.component';
@@ -44,7 +45,8 @@ import {
     SamFeedbackWrapperComponent,
     SamFiltersWrapperComponent,
     SamResourcesWrapperComponent,
-    SamDatabankTitleSectionDirective
+    SamDatabankTitleSectionDirective,
+    SamPageNextComponent
   ],
   exports: [
     MdSidenavModule,
@@ -57,7 +59,8 @@ import {
     SamFeedbackWrapperComponent,
     SamFiltersWrapperComponent,
     SamResourcesWrapperComponent,
-    SamDatabankTitleSectionDirective
+    SamDatabankTitleSectionDirective,
+    SamPageNextComponent
   ]
 })
 export class SamLayoutComponentsModule {}
