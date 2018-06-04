@@ -1,7 +1,37 @@
 .sam-main{
 	padding:10px 20px 20px;
 }
+.selected-filters {
 
+	sam-filter-drawer{
+		display:inline-flex;
+	}
+
+	ul{
+		margin:0px 10px 20px 0;
+		padding:0px;
+
+		li{
+			display:inline-block;
+			width: auto;
+			padding: 3px 10px 5px;
+			margin-right:5px;
+			background-color:#f0f0f0;
+			border-radius:3px;
+			font-size:1.4rem;
+		}
+		li i{
+			margin-left:5px;
+			cursor: pointer;
+		}
+	}
+
+	.options{
+		a{
+			margin:0 5px;
+		}
+	}
+}
 
 .sam-aside-container {	
 	&.aside-opened {
