@@ -74,5 +74,7 @@ $sam-theme-foreground: (
 
 // Background palette for light themes.
 $sam-theme-background: (
-  card: #ffffff
+  card: #ffffff,
+  dialog:     white,
+  background:  map-get($map: $uswds-cool-gray, $key: 200)
 );

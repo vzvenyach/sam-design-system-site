@@ -1,4 +1,17 @@
-<sam-toolbar [sidenav]="sidenav"></sam-toolbar>
+
+
+<sam-page-next>
+  
+  <sam-aside-next #aside opened mode="side">
+    Sidenav content
+  </sam-aside-next>
+
+  Content
+
+</sam-page-next>
+
+
+<sam-toolbar [sidenav]="aside"></sam-toolbar>
 <sam-layout-b>
 	<sam-aside #sidenav>
     <sam-filters-wrapper>

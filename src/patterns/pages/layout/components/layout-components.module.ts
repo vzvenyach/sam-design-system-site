@@ -5,6 +5,7 @@ import {
   ReactiveFormsModule
 } from '@angular/forms';
 
+import { MdSidenavModule } from './sidenav';
 import { SamAsideModule } from './aside';
 import { SamActionBarComponent } from './actionbar.component';
 import { SamLayoutComponent } from './layout.component';
@@ -31,6 +32,7 @@ import {
     FormsModule,
     ReactiveFormsModule,
     SamUIKitModule,
+    MdSidenavModule,
     SamAsideModule
   ],
   declarations: [
@@ -45,6 +47,7 @@ import {
     SamDatabankTitleSectionDirective
   ],
   exports: [
+    MdSidenavModule,
     SamAsideModule,
     SamActionBarComponent,
     SamLayoutComponent,
