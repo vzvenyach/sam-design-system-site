@@ -6,19 +6,19 @@
 .sam-aside-container {	
 	&.aside-opened {
 		.sam-aside {
-			visibility: visible;
+			display: block;
+			min-width:275px;
+			padding:20px 15px;
 		}
 	}
 	
 	.sam-aside {
-		visibility: hidden;
-		padding:20px 15px;
-		min-width:275px;
+		display: none;
 	}
 
 	display: flex;
 } 
-.sam-aside .usa-fieldset-inputs {
+.sam-aside fieldset.usa-fieldset-inputs {
 	padding: 0px;
 	margin: 20px 0;
 }
