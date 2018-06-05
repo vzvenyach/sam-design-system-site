@@ -53,7 +53,7 @@ export class MdSidenavToggleResult {
   moduleId: module.id,
   selector: 'md-sidenav, mat-sidenav, sam-aside',
   // TODO(mmalerba): move template to separate file.
-  templateUrl: 'sidenav.html',
+  template: '<ng-content></ng-content>',
   host: {
     'class': 'mat-sidenav',
     '(transitionend)': '_onTransitionEnd($event)',

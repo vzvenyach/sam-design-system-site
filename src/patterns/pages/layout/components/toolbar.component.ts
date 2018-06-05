@@ -5,7 +5,7 @@ import {
   HostBinding,
   Input
 } from '@angular/core';
-import { SamAsideComponent } from './aside';
+import { MdSidenav } from './sidenav/sidenav';
 
 @Component({
     selector: 'sam-toolbar',
@@ -33,5 +33,5 @@ import { SamAsideComponent } from './aside';
   `
   })
   export class SamToolbarComponent {
-    @Input() sidenav: SamAsideComponent;
+    @Input() sidenav: MdSidenav;
   }
