@@ -51,7 +51,7 @@ export class MdSidenavToggleResult {
  */
 @Component({
   moduleId: module.id,
-  selector: 'md-sidenav, mat-sidenav, sam-aside-next',
+  selector: 'md-sidenav, mat-sidenav, sam-aside',
   // TODO(mmalerba): move template to separate file.
   templateUrl: 'sidenav.html',
   host: {
