@@ -34,33 +34,18 @@
 	}
 }
 
-.sam-aside-container {	
-	&.aside-opened {
-		.sam-aside {
-			display: block;
-			min-width:275px;
-			padding:20px 15px;
-		}
-	}
-	
-	.sam-aside {
-		display: none;
-	}
-
-	display: flex;
-} 
 
 // fieldset spacing and font size //
 
-.sam-aside fieldset.usa-fieldset-inputs {
+sam-aside-next fieldset.usa-fieldset-inputs {
 	padding: 0px;
 	margin: 40px 0;
 }
-.sam-aside fieldset label{
+sam-aside-next fieldset label{
 	font-size:1.4rem;
 }
 
-.sam-aside sam-resources-wrapper {
+sam-aside-next sam-resources-wrapper {
 	
 	ul{
 		padding-left:18px;
