@@ -14,7 +14,8 @@ import 'rxjs/add/observable/merge';
 import { SamModalComponent } from 'sam-ui-elements/src/ui-kit/components/modal';
 import { SamDatabankPaginationComponent } from '.';
 import { cloneDeep } from 'lodash';
-import { NgModel } from '@angular/forms';
+import { NgModel, FormBuilder, FormGroup } from '@angular/forms';
+import { DataStore } from '../../architecture';
 
 @Component({
   selector: 'sam-layout-demo-component',
@@ -32,8 +33,14 @@ export class SamLayoutDemoComponent implements OnInit {
   public filterItems = [];
   public curPage = 1;
   public totalPages;
-  public fhInputText;
-  public dateModel;
+
+
+  public form: FormGroup;
+  public model: Observable<any>;
+  public filters: Observable<any>;
+  public pagination: Observable<any>;
+  public data: Observable<any>;
+  public length: number;
 
   @ViewChild(SamSortDirective) _sort: SamSortDirective;
   @ViewChild(SamModalComponent) fieldsEditor: SamModalComponent;
@@ -41,49 +48,32 @@ export class SamLayoutDemoComponent implements OnInit {
   @ViewChild('fhInput') fhInput: NgModel;
   @ViewChild('dateFilter') dateFilter: NgModel;
 
+  constructor (
+    private _fb: FormBuilder,
+    private _store: DataStore
+  ) {
+    this.form = this._fb.group({
+      fhInputText: [''],
+      dateModel: []
+    });
+  }
+
   public ngOnInit() {
     this.options = this.checkboxOptions();
     this.connect();
 
-    // chips behavior
-    const fhInputChipsObs = this.fhInput.control.valueChanges.subscribe((val) => {
-      if (val) {
-        const item = {
-          id: val,
-          label: 'Agency',
-          value: val // org id would actually populate here
-        };
-        this.filterItems = this.filterItems.filter(filterItem => {
-          if (filterItem.label !== 'Agency') {
-            return true;
-          }
-        });
-        this.filterItems.push(item);
-      } else {
-        this.filterItems = this.filterItems.filter(filterItem => {
-          if (filterItem.label !== 'Agency') {
-            return true;
-          }
-        });
-      }
-    });
-    const dateFilterChipsObs = this.dateFilter.control.valueChanges.subscribe((val) => {
-      if (val && val !== 'Invalid Date') {
-        const item = {
-          id: val,
-          label: 'Last Updated Date',
-          value: val
-        };
+    this.model = this._store.state;
+    this.data = this.model.map(model => model.data);
 
-        this.filterItems = this.filterItems.filter(filterItem => {
-          if (filterItem.label !== 'Last Updated Date') {
-            return true;
-          }
-        });
+    this.data.subscribe(
+      data => this.length = data.length
+    );
 
-        this.filterItems.push(item);
-      }
-    });
+    this.filters = this.model
+      .map(model => this._filtersToPills(model.filters));
+
+    this.pagination = this.model
+      .map(model => model.pagination);
   }
 
   public toggleFieldsEditor () {
@@ -109,10 +99,7 @@ export class SamLayoutDemoComponent implements OnInit {
     // data table
     this.dataSource = new SampleDataSource(
       this.sampleDatabase,
-      this._paginator,
-      this._sort,
-      this.fhInput.control,
-      this.dateFilter.control
+      this._store
     );
   }
 
@@ -203,22 +190,60 @@ export class SamLayoutDemoComponent implements OnInit {
   }
 
   removeFilter(filterItem) {
-    if (filterItem.label === 'Last Updated Date') {
-      this.dateModel = null;
-    }
-    if (filterItem.label === 'Agency') {
-      this.fhInputText = null;
-    }
-    this.filterItems = this.filterItems.filter((val) => {
-      if (filterItem.label !== val.label && filterItem.value !== val.value) {
-        return true;
+    const removed = {};
+    removed[filterItem.id] = '';
+    const newValue = {
+      ...this._store.currentState.filters,
+      ...removed
+    };
+    this._store.update(
+      {
+        type: 'FILTERS_CHANGED',
+        payload: newValue
       }
-    });
+    );
   }
 
   removeAllFilters() {
-    this.dateModel = null;
-    this.fhInputText = null;
-    this.filterItems = [];
+    this.form.reset();
+  }
+
+  public onPageChange (event) {
+    const pg = {
+      pageSize: this._paginator.pageSize,
+      currentPage: this._paginator.currentPage,
+      totalPages: this._paginator.totalPages
+    };
+    this._store.update(
+      {
+        type: 'PAGE_CHANGE',
+        payload: pg
+      }
+    );
+  }
+
+  public onSortChange (event) {
+    this._store.update(
+      {
+        type: 'SORT_CHANGE',
+        payload: event
+      }
+    );
+  }
+
+  private _filtersToPills (filters): any[] {
+    const keys = Object.keys(filters);
+    return keys.map(
+      key => {
+        const obj: any = {};
+        obj.id = key;
+        obj.label = key;
+        obj.value = filters[key];
+        return obj;
+      }
+    )
+    .filter(
+      filter => !!filter.value
+    );
   }
 }

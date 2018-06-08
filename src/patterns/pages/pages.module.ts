@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SamUIKitModule } from 'sam-ui-elements/src/ui-kit';
 import { PagesRoutingModule } from './pages.routes';
@@ -9,8 +9,7 @@ import { PagesComponent } from './pages.component';
 import { PageAComponent } from './page-a/page.component';
 import { PageBComponent } from './page-b/page.component';
 import {
-  SamLayoutDemoComponent,
-  SamLayoutComponentsModule
+  LayoutModule
 } from './layout';
 
 
@@ -43,15 +42,15 @@ import { DataFilesPageComponent } from './data-services/data-files/page.componen
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     PagesRoutingModule,
     SamUIKitModule,
-    SamLayoutComponentsModule
+    LayoutModule
   ],
   declarations: [
     PagesComponent,
     PageAComponent,
     PageBComponent,
-    SamLayoutDemoComponent,
     SinglePageEditorComponent,
     MultiPageEditorComponent,
     ReviewPageComponent,
