@@ -7,7 +7,7 @@
     "start": "ng serve --preserve-symlinks",
     "start:aot": "npm run init && ng serve --preserve-symlinks --aot",
     "build": "npm run init && ng build --preserve-symlinks --prod --stats-json",
-    "federalist": "npm run ng build --prod",
+    "federalist": "npm install && npm run ng build --prod",
     "test": "npm run init && ng test",
     "lint": "ng lint --force",
     "e2e": "npm run init && ng e2e",
