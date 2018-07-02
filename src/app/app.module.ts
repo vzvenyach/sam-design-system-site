@@ -8,9 +8,12 @@ import { RouterModule, PreloadAllModules } from '@angular/router';
  * Platform and Environment providers/directives/pipes
  */
 import { ENV_PROVIDERS } from './environment';
+import { ROUTES } from './app.routes';
 
 // App is our top level component
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home.component';
+import { SamTextComponent } from './components/text.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -24,12 +27,15 @@ const APP_PROVIDERS = [
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
+    HomeComponent,
+    SamTextComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,

@@ -6,9 +6,9 @@ const EXT = '.txt'
 
 const MarkdownIt = require('markdown-it')
 const STATIC_DIR = path.join(__dirname, '../_static')
-const DOCS_DIR = path.join(__dirname, '../_docs')
+//const DOCS_DIR = path.join(__dirname, '../_docs')
 
-setup(ROOT)(STATIC_DIR, DOCS_DIR)
+setup(ROOT)(STATIC_DIR)
 
 function setup (root) {
 

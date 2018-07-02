@@ -25,11 +25,15 @@ const STATICPAGES = environment.STATICPAGES;
   animations: [ routerTransition ],
   encapsulation: ViewEncapsulation.None,
   template: `
-    <div>Sample Angular app loaded!</div>
+    <main [@routerTransition]="getState(o)">
+      <router-outlet #o="outlet"></router-outlet>
+    </main>
+
   `,
 })
 export class AppComponent {
-
-
   constructor() {}
+  public getState(outlet) {
+    return outlet.activatedRouteData.state;
+  }
 }
