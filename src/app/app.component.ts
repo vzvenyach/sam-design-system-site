@@ -25,7 +25,7 @@ const STATICPAGES = environment.STATICPAGES;
   animations: [ routerTransition ],
   encapsulation: ViewEncapsulation.None,
   template: `
-    <div>HELLOOOOO!!!</div>
+    <div>Sample Angular app loaded!</div>
   `,
 })
 export class AppComponent {
