@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "npm run init && ng serve --preserve-symlinks",
+    "start": "ng serve --preserve-symlinks",
     "start:aot": "npm run init && ng serve --preserve-symlinks --aot",
     "build": "npm run init && ng build --preserve-symlinks --prod --stats-json",
     "test": "npm run init && ng test",
