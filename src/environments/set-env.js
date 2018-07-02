@@ -6,13 +6,7 @@ const path = require('path')
 const ENV = process && process.env && process.env.ENV ? process.env.ENV : '';
 
 const config = {
-  STATICPAGES: STATIC,
-  DOCS: DOCS,
   ENV: ENV,
-  STATIC_PATH: STATIC_PATH,
-  DOCS_PATH: DOCS_PATH,
-  DOCS_MODULE_PATH: DOCS_MODULE_PATH,
-  DOCS_ROUTE_PATH: DOCS_ROUTE_PATH
 }
 
 run(config)
