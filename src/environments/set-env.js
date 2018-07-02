@@ -2,16 +2,7 @@ const fs = require('fs')
 const helpers = require('./helpers')
 const path = require('path')
 
-const STATIC_PATH = path.join(__dirname, '../_static')
-const DOCS_PATH = path.join(__dirname, '../_docs')
 
-const DOCS_MODULE_PATH =
-  path.join(__dirname, '../_docs/doc.module.dynamic.ts')
-const DOCS_ROUTE_PATH =
-  path.join(__dirname, '../_docs/doc.routes.dynamic.ts')
-
-const STATIC = JSON.stringify(helpers.getStaticDirStructure(STATIC_PATH))
-const DOCS = JSON.stringify(helpers.getUIKitStructure(DOCS_PATH))
 const ENV = process && process.env && process.env.ENV ? process.env.ENV : '';
 
 const config = {
@@ -27,9 +18,6 @@ const config = {
 run(config)
 
 function run (config) {
-
-  helpers.writeModuleFile(config.DOCS_PATH, config.DOCS_MODULE_PATH)
-  helpers.writeRoutesFile(config.DOCS_PATH, config.STATIC_PATH, config.DOCS_ROUTE_PATH)
 
   writeEnvFile(config,'./environment.ts')
   writeEnvFile(config,'./environment.prod.ts')
@@ -60,10 +48,6 @@ function setVariables (config) {
 import { EnvironmentVariables } from './environment.d';
 
 export const environment: EnvironmentVariables = {
-  STATICPAGES: ${config.STATICPAGES},
-  DOCS: ${config.DOCS},
-  ENV: '${config.ENV}',
-  API_UMBRELLA_URL: '$API_UMBRELLA_URL',
   production: ${config.ENV === 'prod' ? true : false}
 }\n`
 
