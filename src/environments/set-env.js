@@ -13,7 +13,7 @@ const DOCS_ROUTE_PATH =
 const STATIC = JSON.stringify(helpers.getStaticDirStructure(STATIC_PATH))
 const DOCS = JSON.stringify(helpers.getUIKitStructure(DOCS_PATH))
 const ENV = process && process.env && process.env.ENV ? process.env.ENV : '';
-const BRANCH = process && process.env && process.env.BRANCH ? process.env.BRANCH : 'blue';
+const BRANCH = process && process.env && process.env.BRANCH ? process.env.BRANCH : '';
 
 const config = {
   STATICPAGES: STATIC,
